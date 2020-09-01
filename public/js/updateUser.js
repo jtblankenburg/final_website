@@ -3,7 +3,7 @@ import {showAlert} from './alerts';
 
 export const updateData = async (data, type) => {
     try{
-        const url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+        const url = type === 'password' ? '/api/v1/users/updateMyPassword' : '/api/v1/users/updateMe';
         const res = await axios({
             method: 'PATCH',
             url,
@@ -22,7 +22,7 @@ export const deleteMe = async () => {
     try {
         const res = await axios({
             method: 'DELETE',
-            url: 'http://127.0.0.1:3000/api/v1/users/deleteMe'
+            url: '/api/v1/users/deleteMe'
         });
         if(res.status==204) {
             showAlert('success', 'Account has been deleted successfully');

@@ -5,7 +5,7 @@ export const updateAboutPage = async(data) => {
     try {
         const res = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/aboutPage/5f1fa7e5dc287975909c9033',
+            url: '/api/v1/aboutPage/5f1fa7e5dc287975909c9033',
             data
         });
         if(res.data.status === 'success') {

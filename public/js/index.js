@@ -71,7 +71,7 @@ if(userDataForm)
         form.append('favoritePhrase', document.getElementById('favphrase').value);
         form.append('pledgeClass', document.getElementById('pledgeclass').value);
         form.append('pin', document.getElementById('pin').value);
-        console.log(form);
+        //console.log(form);
         updateData(form, 'data');
     });
 

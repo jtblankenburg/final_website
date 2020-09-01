@@ -5,7 +5,7 @@ export const createEvent = async(data) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/events',
+            url: '/api/v1/events',
             data
         });
         if(res.data.status === 'success') {

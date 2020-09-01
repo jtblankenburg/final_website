@@ -16,13 +16,13 @@ mongoose.connect(DB, {
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true
-}).then( () => { console.log('Connected to mongoDB...'); });
+}).then( () => {  });
 
 
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, ()=>{
-    console.log(`Server started on port ${port}...`);
+    //console.log(`Server started on port ${port}...`);
 });
 
 process.on('unhandledRejection', err => {
