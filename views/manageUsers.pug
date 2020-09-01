@@ -1,0 +1,29 @@
+extends base
+
+block content
+    if users.length==0
+        .container-fluid
+            h1 There are no users!
+    else
+        h1 Manage Users
+        .container-fluid
+            -var x =0
+            -var length = users.length
+            while x<length
+                .row
+                    .col-6   
+                        img(class='img-thumbnail' src=`/img/users/${users[x].photo}`)
+                    .col-6
+                        ul
+                            li=`Name: ${users[x].firstname} ${users[x].lastname}`
+                            li=`Email: ${users[x].email}`
+                            li=`Major: ${users[x].major}, Year: ${users[x].year}`
+                            li=`Pledge class: ${users[x].pledgeClass}, Pin: ${users[x].pin}`
+                            li=`Favorite phrase: ${users[x].favoritePhrase}`
+                            input#nameUser(type='hidden' value=`${users[x].firstname} ${users[x].lastname}`)
+                            input(id=`user${x}` type='hidden' value=`${users[x].id}`)
+                        if users[x].role != 'admin'
+                            button.btn.btn-success.promoteAdminUserPage(type='click') Promote to Admin
+                        button.btn.btn-danger.deleteUser(type='click') Delete User
+                -x++
+        

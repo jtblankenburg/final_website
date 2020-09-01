@@ -1,0 +1,60 @@
+extends base 
+
+block content
+    form.edit-rush-page
+        .container
+            .form-group
+                label(for='headingOne') Heading One
+                input#headingOne.form-control(type='text' value=`${rushPages.headingOne}`)
+        .container-fluid.text-dark.border.rounded-0.border-dark(style='padding: 0px;margin-top: 48px;')
+            .row
+                .col-12.col-md-6.border.border-dark
+                    img(class='img-thumbnail imageOne' src=`/img/rush/${rushPages.rushPagePhotos[0].name}`)
+                    .form-group
+                        label(for='paragraphOne') Paragraph One
+                        textarea#paragraphOne.form-control(rows='4')=rushPages.paragraphOne
+                    input#photoOneVal(type='hidden', value=rushPages.rushPagePhotos[0].id)
+                    .form-group
+                        input#photoOne.form-control-file(type='file' accept='image/*' data-show-caption='true')
+                .col-12.col-md-6.border.border-dark
+                    img(class='img-thumbnail imageTwo' src=`/img/rush/${rushPages.rushPagePhotos[1].name}`)
+                    .form-group
+                        label(for='paragraphTwo') Paragraph Two
+                        textarea#paragraphTwo.form-control(rows='4')=rushPages.paragraphTwo
+                    input#photoTwoVal(type='hidden', value=rushPages.rushPagePhotos[1].id)
+                    .form-group
+                        input#photoTwo.form-control-file(type='file' accept='image/*' data-show-caption='true')
+        .jumbotron.jumbotron-fluid
+            .container
+                .form-group
+                    label(for='headingTwo') Heading Two
+                    input#headingTwo.form-control(type='text' value=`${rushPages.headingTwo}`)
+                .form-group
+                    label(for='paragraphThree') Paragraph Three
+                    textarea#paragraphThree.form-control(rows='5')=rushPages.paragraphThree
+                .form-group
+                    label(for='ifcURL') IFC URL
+                    input#ifcURL.form-control(type='text' value=`${rushPages.ifcURL}`)
+        .container
+            .form-group        
+                label(for='headingThree') Heading Three
+                input#headingThree.form-control(type='text' value=`${rushPages.headingThree}`)
+            .form-group
+                button.btn.btn-primary(type='submit') Submit Changes
+    .contact-clean(style='padding: 35px;')
+        form(method='post')
+            h2.text-center Contact us
+            .form-group
+                input.form-control(type='text' name='name' placeholder='Name')
+            .form-group
+                input.form-control(type='text' name='email' placeholder='email')
+            .form-group
+                input.form-control(type='text' name='phone' placeholder='phone')
+            .form-group
+                input.form-control(type='text' name='major' placeholder='major')
+            .form-group
+                input.form-control(type='text' name='classification' placeholder='classification')
+            .form-group
+                textarea.form-control(name='questions' placeholder='questions/comments' rows='14')
+
+               

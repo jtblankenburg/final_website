@@ -1,0 +1,64 @@
+extends base
+
+block content
+    #carousel-1.carousel.slide(data-ride='carousel')
+        .carousel-inner(role='listbox')
+            -var length = homePages.HomePhotos.length
+            -var x=1
+            .carousel-item.active
+                img.w-100.d-block(src=`/img/home/${homePages.HomePhotos[0].name}` alt='Slide Image')
+            while x<length
+                .carousel-item
+                    img.w-100.d-block(src=`/img/home/${homePages.HomePhotos[x].name}`)
+                -x++
+        div
+            a.carousel-control-prev(href='#carousel-1' role='button' data-slide='prev')
+                span.carousel-control-prev-icon
+                span.sr-only Previous
+            a.carousel-control-next(href='#carousel-1' role='button' data-slide='next')
+                span.carousel-control-next-icon
+                span.sr-only Next
+        ol.carousel-indicators
+            li.active(data-target='#carousel-1' data-slide-to='0')
+            li(data-target='#carousel-1' data-slide-to='1')
+            li(data-target='#carousel-1' data-slide-to='2')
+    .jumbotron
+        h1=homePages.rushHeading
+        p=homePages.rushParagraph
+        
+        .btn.btn-primary(role='button') Learn more
+    .container-fluid
+        h2=homePages.aboutHeading
+        p=homePages.aboutParagraph
+    .container-fluid
+        .row
+            if homePages.userOne
+                .col-md-6.col-sm-12
+                    .row
+                        .col
+                            h4=homePages.userOneTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${homePages.userOne.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=homePages.userOne.firstname +' '+ homePages.userOne.lastname
+                                li=homePages.userOne.major
+                                li=homePages.userOne.year
+                                li=homePages.userOne.favoritePhrase
+            if homePages.userTwo
+                .col-md-6.col-sm-12
+                    .row
+                        .col
+                            h4=homePages.userTwoTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${homePages.userTwo.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=homePages.userTwo.firstname +' '+ homePages.userTwo.lastname
+                                li=homePages.userTwo.major
+                                li=homePages.userTwo.year
+                                li=homePages.userTwo.favoritePhrase 
+
+            .btn.btn-primary(role='button') Learn more      

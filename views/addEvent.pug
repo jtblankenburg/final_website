@@ -1,0 +1,30 @@
+extends base
+
+block content
+    
+    form.add-event
+        .container
+            h1 Add Event
+            .row
+                .col-6
+                    .form-group
+                        img(class='img-thumbnail imageOne' src='/img/events/tour-1-1.jpg')
+                        label(for='coverPhoto')
+                        input#photoOne.form-control-file(type='file' accept='image/*')
+                        
+                        
+                .col-6
+                    .form-group
+                        label(for='title')
+                        input#title.form-control(type='text' placeholder='Event title')
+            .row
+                .col-12
+                    .form-group
+                        label(for='caption')
+                        textarea#caption.form-control(rows='4') caption
+            .row
+                .col-6
+                    .form-group
+                        label(for='semester')
+                        input#semester.form-control(type='text' placeholder='semester')
+            button.btn.btn-primary(type='submit') Submit

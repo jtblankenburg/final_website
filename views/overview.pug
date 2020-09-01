@@ -1,0 +1,11 @@
+extends base
+
+block content
+    .container-fluid
+        each event in events
+            .row
+                .col
+                    img(src=`/img/events/${event.coverPhoto}`, alt=`${event.title}`).img-thumbnail
+                .col
+                    h5= event.title
+                    p= event.caption

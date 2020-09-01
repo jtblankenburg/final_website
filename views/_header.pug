@@ -1,0 +1,44 @@
+nav.navbar.fixed-top.navbar-dark.navbar-expand-xl.navigation-clean-button
+    a.navbar-brand(href='/') UH Pi Kappa Phi
+    button.navbar-toggler(data-toggle='collapse' data-target='#navcol-2')
+        span.sr-only Toggle navigation
+        span.navbar-toggler-icon
+    #navcol-2.collapse.navbar-collapse
+        ul.nav.navbar-nav.mr-auto
+            li.nav-item(role='presentation')
+                a.nav-link(href='/') Home
+            li.nav-item(role='presentation')
+                a.nav-link(href='/about') About
+            li.nav-item(role='presentation')
+                a.nav-link(href='/rush') Rush
+            li.nav-item(role='presentation')
+                a.nav-link(href='/events') Event Gallery
+            if user
+                li.nav-item(role='presentation')
+                    a.nav-link(href='#') Calendar               
+                if user.role == 'admin'
+                    li.nav-item(role='presentation')
+                    li.nav-item.dropdown
+                        a.dropdown-toggle.nav-link(data-toggle='dropdown' aria-expanded='false' href='#') Manage Users
+                        .dropdown-menu(role='menu')
+                            a.dropdown-item(role='presentation' href='/manageUsers') Manage all users
+                            a.dropdown-item(role='presentation' href='/adminpage') Manage admins
+                    li.nav-item(role='presentation')
+                    li.nav-item.dropdown
+                        a.dropdown-toggle.nav-link(data-toggle='dropdown' aria-expanded='false' href='#') Edit website
+                        .dropdown-menu(role='menu')
+                            a.dropdown-item(role='presentation' href='/addEvent') Add Event
+                            a.dropdown-item(role='presentation' href='/editHomePage') Edit Home page
+                            a.dropdown-item(role='presentation' href='/editAboutPage') Edit About page 
+                            a.dropdown-item(role='presentation' href='/editRushPage') Edit Rush page              
+        if user        
+            span.navbar-text.actions
+                a.nav-Link.login.logout(href='/') Log out
+                a.btn.btn-light.action-button(role='button' href='/me') Manage Profile
+        else
+            span.navbar-text.actions
+                a.login(href='/login') Log in
+                a.btn.btn-light.action-button(role='button' href='/signup') Sign Up
+
+
+                

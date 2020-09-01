@@ -1,0 +1,29 @@
+extends base
+
+block content
+    .container-fluid
+        img(class='img-fluid w-100' src=`/img/events/${event.coverPhoto}` alt=`${event.title}`)
+        h3(class='text-center')=event.title
+        p(class='text-center')=event.caption
+    .container-fluid    
+        .row
+            -var x=0
+            -var length = event.specificEvents.length
+            while x<length    
+                .col-12.col-md-4.d-flex.justify-content-center
+                    a(href=`/events/${event.slug}/${event.specificEvents[x].id}`)
+                        img(class='img-thumbnail eventPage' src=`/img/specificEvents/${event.specificEvents[x].coverPhoto}`)
+                        h4(class='event-title-over-image')=`${event.specificEvents[x].semester} ${event.specificEvents[x].year}`
+                    if user
+                        if user.role == 'admin'
+                            input(id=`specificEvent${x}` type='hidden' value=`${event.specificEvents[x].id}`)
+                            button.btn.btn-danger.delete-specific-event-button(type='click') Delete 
+                -x++
+            if user
+                if user.role == 'admin'
+                    .col-12.col-md-4.d-flex.justify-content-center
+                        a(href=`/addCollection/${event.id}`)             
+                            img(class='img-thumbnail maksButton' src='/img/addContent.jpg')
+                            h1(class='maksButtonText') Add Collection
+            
+

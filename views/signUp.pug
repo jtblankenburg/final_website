@@ -1,0 +1,51 @@
+extends base
+
+block content
+    .container-fluid
+        h3 Sign up
+        form.sign-up
+            .row
+                .col-lg-6
+                    .form-group
+                        label(for='firstname') First name
+                        input#firstname.form-control(type='text' placeholder='first name')
+                .col-lg-6
+                    .form-group
+                        label(for='lastname') Last name
+                        input#lastname.form-control(type='text' placeholder='last name')
+            .row
+                .col-6.col-lg-6
+                    .form-group
+                        label(for='major') Major
+                        input#major.form-control(type='text' placeholder='major')     
+                .col-6.col-lg-2
+                    .form-group
+                        label(for='year') Year
+                        input#year.form-control(type='text' placeholder='year')
+                .col-6.col-lg-2
+                    .form-group
+                        label(for='pin') Pin
+                        input#pin.form-control(type='text' placeholder='pin')
+                .col-6.col-lg-2
+                    .form-group
+                        label(for='pledgeclass') Pledge Class
+                        input#pledgeclass.form-control(type='text' placeholder='pledge class')
+            .row
+                .col-lg-6
+                    .form-group
+                        label(for='email') Email
+                        input#email.form-control(type='email' placeholder='email')
+                .col-lg-6
+                    .form-group
+                        label(for='favoritePhrase') Favorite phrase
+                        input#favoritePhrase.form-control(type='text' placeholder='favorite phrase')      
+            .row
+                .col-lg-6
+                    .form-group
+                        label(for='password') Password
+                        input#password.form-control(type='password' placeholder='password') 
+                .col-lg-6
+                    .form-group
+                        label(for='passwordConfirm') Confirm password
+                        input#passwordConfirm.form-control(type='password' placeholder='confirm password')
+            button.btn.btn-primary(type='submit') Sign up

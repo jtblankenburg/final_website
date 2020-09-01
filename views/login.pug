@@ -1,0 +1,14 @@
+extends base
+
+
+block content
+    .container.login-container
+        h3 Log into your account
+        form.form--login
+            .form-group
+                label(for='email') Email address
+                input#email.form-control(type='email' placeholder='Enter email')
+            .form-group
+                label(for='password') Password
+                input#password.form-control(type='password' placeholder= 'Password')
+            button.btn.btn-primary(type='submit') Submit

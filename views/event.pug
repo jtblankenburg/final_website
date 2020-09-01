@@ -1,0 +1,23 @@
+extends base
+
+block content
+    h2(style='padding-top: 15px' class='text-center') Pi Kappa Phi Events
+    p(class='text-center') Click on the images below to see pictures from our previous events!
+    -var length = events.length
+    -var spot = 0
+    .container-fluid
+        .row
+            while spot<length
+                .col-sm-6.col-md-4.d-flex.justify-content-center.eventCols
+                    a(href=`/events/${events[spot].slug}` class='text-align-center') 
+                        img(class='img-fluid eventPage' src=`/img/events/${events[spot].coverPhoto}` alt=`${events[spot].title}`)
+                        h3(style='text-align: center' class='event-title-over-image')=events[spot].title
+                    if user
+                        if user.role == 'admin'
+                            input(id=`event${spot}` type='hidden' value=events[spot].id)
+                            button.btn.btn-danger.delete-Event(type='click') Delete               
+                -spot++        
+                   
+
+       
+                

@@ -1,0 +1,47 @@
+extends base
+
+block content
+    .modal.fade#exampleModal(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body                                  
+                    #carouselExample.carousel.slide(data-ride='carousel')
+                        if specificEvent.specificEventPhotos.length > 0
+                            .carousel-inner
+                                .carousel-item.active
+                                    img.d-block.w-100(src=`/img/specificEvents/${specificEvent.specificEventPhotos[0].name}` alt='...')
+                                -var i = 1
+                                -var length = specificEvent.specificEventPhotos.length
+                                while i<length
+                                    .carousel-item
+                                        img.d-block.w-100(src=`/img/specificEvents/${specificEvent.specificEventPhotos[i].name}` alt='...')
+                                    -i++
+                            a.carousel-control-prev(href='#carouselExample' role='button' data-slide='prev')
+                                span.carousel-control-prev-icon(aria-hidden='true')
+                                span.sr-only Previous
+                            a.carousel-control-next(href='#carouselExample' role='button' data-slide='next')
+                                span.carousel-control-next-icon(aria-hidden='true')
+                                span.sr-only Next
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                          
+    .container-fluid 
+        h3(style='padding-top: 15px').text-center=specificEvent.semester + ' ' + specificEvent.year
+        if specificEvent.caption
+            p.text-center=specificEvent.caption   
+        .row(data-toggle='modal' data-target='#exampleModal')   
+            -var x = 0
+            -var length = specificEvent.specificEventPhotos.length
+            while x<length     
+                .col-12.col-md-4.d-flex.justify-content-center(style='padding-bottom: 20px')                
+                    img(class='img-thumbnail eventPage' src=`/img/specificEvents/${specificEvent.specificEventPhotos[x].name}` data-target='#carouselExample' data-slide-to=`${x}`)
+                -x++
+            if user
+                if user.role == 'admin'
+                    .col-12.col-md-4.d-flex.justify-content-center
+                        a(href=`/specificEvents/${specificEvent.id}`)             
+                            img(class='img-thumbnail maksButton' src='/img/addContent.jpg')
+                            h1(class='maksButtonText') Add/Remove Images

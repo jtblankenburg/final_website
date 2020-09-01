@@ -1,0 +1,31 @@
+extends base
+
+block content
+    if users.length==0
+        .container-fluid
+            h1 There are no users to be promoted!
+    else
+        h1 Manage admins
+        .container-fluid
+            -var x=0
+            -var length = users.length
+            while x<length
+                .row
+                    .col-6   
+                        img(class='img-thumbnail' src=`/img/users/${users[x].photo}`)
+                    .col-6
+                        ul
+                            li=`Name: ${users[x].firstname} ${users[x].lastname}`
+                            li=`Email: ${users[x].email}`
+                            li=`Major: ${users[x].major}, Year: ${users[x].year}`
+                            li=`Pledge class: ${users[x].pledgeClass}, Pin: ${users[x].pin}`
+                            li=`Favorite phrase: ${users[x].favoritePhrase}`
+                            input(id=`nameUser${x}` type='hidden' value=`${users[x].firstname} ${users[x].lastname}`)
+                            input(id=`user${x}` type='hidden' value=`${users[x].id}`)
+                        button.btn.btn-success.promoteAdmin(type='click') Promote
+                        button.btn.btn-danger.denyAdmin(type='click') Deny
+                -x++
+        
+
+
+

@@ -1,0 +1,77 @@
+extends base
+
+block content
+    .container-fluid.manage-profile-container
+        .row
+            .col-5
+                h3 Your account information
+            .col-4.offset-3
+                input#apply(type='hidden' value=`${user.id}`)
+                if user.applyForAdmin == true || user.role == 'admin'
+                    button.btn.btn-secondary(disabled) Apply for admin
+                else
+                    button.btn.btn-success.applyForAdmin(type='click') Apply for admin
+                button.btn.btn-danger.deleteMyAccount( type='click') Delete Account
+                
+        form.form-user-data
+            .row
+                .col-lg-3
+                    h5 Upload or change profile picture
+                    .form-group
+                        label(for='photo')
+                        input#photo.form-control-file(type='file' accept='image/*' value=`${user.photo}`)
+                    img(class='img-thumbnail rounded-circle' src=`/img/users/${user.photo}`)
+
+                .col-lg-4.offset-lg-1
+                    .form-group
+                        label(for='firstname') First Name
+                        input#firstname.form-control(type='text' value=`${user.firstname}`)
+                .col-lg-4
+                    .form-group
+                        label(for='lastname') Last name
+                        input#lastname.form-control(type='text' value=`${user.lastname}`)
+            .row
+                .col-lg-6
+                    .form-group
+                        label(for='email') Email
+                        input#email.form-control(type='email' value=`${user.email}`)
+                .col-lg-3.col-6
+                    .form-group
+                        label(for='major') Major
+                        input#major.form-control(type='text' value=`${user.major}`)
+                .col-lg-3.col-6
+                    .form-group
+                        label(for='year') Year
+                        input#year.form-control(type='text' value=`${user.year}`)
+            .row
+                .col-lg-6.col-12
+                    .form-group
+                        label(for='favphrase') Favorite phrase
+                        input#favphrase.form-control(type='text' value=`${user.favoritePhrase}`)
+                .col-lg-3.col-6
+                    .form-group
+                        label(for='pledgeclass') Pledge class
+                        input#pledgeclass.form-control(type='text' value=`${user.pledgeClass}`)
+                .col-lg-3.col-6
+                    .form-group
+                        label(for='pin') Pin
+                        input#pin.form-control(type='text' value=`${user.pin}`)
+            button.btn.btn-primary(type='submit') Submit
+    .container-fluid.manage-profile-container
+        form.form-updatePass
+            h3.text-center Change Password
+            .row
+                .col-12
+                    label(for='currentPass') Current password
+                    input#currentPass.form-control(type='password' placeholder='current password')
+                .col-12
+                    .form-group
+                        label(for='newPass') New password
+                        input#newPass.form-control(type='text' placeholder='new password')
+                .col-12
+                    .form-group
+                        label(for='newPassConfirm') New password confirm
+                        input#newPassConfirm.form-control(type='text' placeholder='new password confirm')
+            button.btn.btn-primary.save-password(type='submit') Submit
+
+            

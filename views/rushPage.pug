@@ -1,0 +1,36 @@
+extends base 
+
+block content
+    .container-fluid.rushContainer
+        h1(class='rushHeading')=rushPages.headingOne      
+        .row
+            .col-12.col-md-6
+                img(class='img-thumbnail rushImg' src=`/img/rush/${rushPages.rushPagePhotos[0].name}`)
+                p(class='rushParagraphOnImg')=rushPages.paragraphOne
+            .col-12.col-md-6
+                img(class='img-thumbnail rushImg' src=`/img/rush/${rushPages.rushPagePhotos[1].name}`)
+                p(class='rushParagraphOnImg')=rushPages.paragraphTwo
+    .jumbotron.jumbotron-fluid
+        .container
+            h1(class='display-4')=rushPages.headingTwo
+            p=rushPages.paragraphThree
+            a(href=`${rushPages.ifcURL}`)=rushPages.ifcURL
+        
+    h1(style='text-align: center; margin-left: 36px;')=rushPages.headingThree
+    .contact-clean(style='padding: 35px;')
+        form(method='post')
+            h2.text-center Contact us
+            .form-group
+                input.form-control(type='text' name='name' placeholder='Name')
+            .form-group
+                input.form-control(type='text' name='email' placeholder='email')
+            .form-group
+                input.form-control(type='text' name='phone' placeholder='phone')
+            .form-group
+                input.form-control(type='text' name='major' placeholder='major')
+            .form-group
+                input.form-control(type='text' name='classification' placeholder='classification')
+            .form-group
+                textarea.form-control(name='questions' placeholder='questions/comments' rows='14')
+            .form-group
+                button.btn.btn-primary(type='submit') send 

@@ -1,0 +1,28 @@
+extends base
+
+block content
+    
+    .row
+        .container(style='padding-top: 15px')
+            input#specificEventId(type='hidden' value=`${specificEvent.id}`)
+                  
+            .row
+                -var x=0
+                -var length = specificEvent.specificEventPhotos.length
+                while x<length
+                    .col-6.col-md-4
+                        .form-group
+                            img(class='img-thumbnail' src=`/img/specificEvents/${specificEvent.specificEventPhotos[x].name}`)
+                            input(id=`specificEventPhotoId${x}` type='hidden' value=`${specificEvent.specificEventPhotos[x].id}`)
+                            button.btn.btn-danger.removeSpecificEventPhoto(type='click') Remove
+                    -x++
+            form.add-specific-event-photos
+                h1(style='padding-bottom: 15px') Add Images
+                .row
+                    
+                    .form-group  
+                        input#addSpecificEventPhotos.form-control-file(type='file' accept='image/*' data-show-caption='true' multiple)
+                .row
+                    button.btn.btn-primary(type='submit') Submit
+            .row#image-preview
+                      

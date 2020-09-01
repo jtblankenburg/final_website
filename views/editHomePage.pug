@@ -1,0 +1,166 @@
+extends base
+
+block content
+    .modal.fade#userOneSelectModal(tabindex='-1' role='dialog' aria-labelledby='userOneModalLabel' aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    input#userOneModalLabel.modal-title(placeholder='Search users')
+                    button.btn.btn-success(type='submit') Search
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                    -var x = 0
+                    -var length = users.length
+                    while x<length                                     
+                        .row
+                            .col-6
+                                img(class='img-thumbnail' src=`/img/users/${users[x].photo}`)
+                                input(id=`userOneImg${x}` type='hidden' value=`${users[x].photo}`)
+                            .col-6
+                                ul
+                                    li(id=`userOneName${x}`)=users[x].firstname + ' ' +users[x].lastname
+                                    li(id=`userOneMajor${x}`)=users[x].major
+                                    li(id=`userOneYear${x}`)=users[x].year
+                                    li=users[x].pin
+                                    li(id=`userOneFavPhrase${x}`)=users[x].favoritePhrase
+                                    input(id=`userOne${x}` type='hidden' value=`${users[x].id}`)
+                                button.btn.btn-light.selectUserOneBtn( type='click' data-dismiss='modal' value=`${users[x].id}`) Select
+                        -x++
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button') Save Changes
+    .modal.fade#userTwoSelectModal(tabindex='-1' role='dialog' aria-labelledby='userTwoModalLabel' aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    input#userTwoModalLabel.modal-title(placeholder='Search users')
+                    button.btn.btn-success(type='submit') Search
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                    -var x = 0
+                    -var length = users.length
+                    while x<length                                     
+                        .row
+                            .col-6
+                                img(class='img-thumbnail' src=`/img/users/${users[x].photo}`)
+                                input(id=`userTwoImg${x}` type='hidden' value=`${users[x].photo}`)
+                            .col-6
+                                ul
+                                    li(id=`userTwoName${x}`)=users[x].firstname + ' ' +users[x].lastname
+                                    li(id=`userTwoMajor${x}`)=users[x].major
+                                    li(id=`userTwoYear${x}`)=users[x].year
+                                    li=users[x].pin
+                                    li(id=`userTwoFavPhrase${x}`)=users[x].favoritePhrase
+                                    input(id=`userTwo${x}` type='hidden' value=`${users[x].id}`)
+                                button.btn.btn-light.selectUserTwoBtn( type='click' data-dismiss='modal' value=`${users[x].id}`) Select
+                        -x++
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button') Save Changes
+
+
+    form.edit-home-page
+        .container
+            .row
+                .col-4
+                    .form-group
+                        img(class='img-thumbnail imageOne' src=`/img/home/${homePages.HomePhotos[0].name}`)
+                        label(for='photo')
+                        input#photoOneVal(type='hidden' value=homePages.HomePhotos[0].id)
+                        input#photoOne.form-control-file(type='file' accept='image/*' data-show-caption='true' value=`${homePages.carouselPhotos[0]}`)
+                .col-4
+                    .form-group
+                        img(class='img-thumbnail imageTwo' src=`/img/home/${homePages.HomePhotos[1].name}`)
+                        label(for='photo')
+                        input#photoTwoVal(type='hidden' value=homePages.HomePhotos[1].id)
+                        input#photoTwo.form-control-file(type='file' accept='image/*' data-show-caption='true' value=`/img/home/${homePages.carouselPhotos[1]}`)
+                .col-4
+                    .form-group
+                        img(class='img-thumbnail imageThree' src=`/img/home/${homePages.HomePhotos[2].name}`)
+                        label(for='photo')
+                        input#photoThreeVal(type='hidden' value=homePages.HomePhotos[2].id)
+                        input#photoThree.form-control-file(type='file' accept='image/*' data-show-caption='true' value=`/img/home/${homePages.carouselPhotos[2]}`)
+            .row
+                .col-12
+                    .form-group
+                        label(for='headingOne') Heading One
+                        input#headingOne.form-control(type='text' value=`${homePages.rushHeading}`)
+            .row
+                .col-12
+                    .form-group
+                        label(for='paragraphOne') Paragraph One
+                        textarea#paragraphOne.form-control(rows="4")=homePages.rushParagraph
+            .row
+                .col-12
+                    .form-group
+                        label(for='headingTwo') Heading Two
+                        input#headingTwo.form-control(type='text' value=`${homePages.aboutHeading}`)
+            .row
+                .col-12
+                    .form-group
+                        label(for='paragraphTwo') Paragraph One
+                        textarea#paragraphTwo.form-control(rows="4")=homePages.aboutParagraph
+            .row
+                .col-6
+                    .form-group
+                        label(for='userOneTitle') User One Title
+                        input#userOneTitle.form-control(type='text' value=`${homePages.userOneTitle}`)
+                .col-6
+                    .form-group
+                        label(for='userTwoTitle') User Two Title
+                        input#userTwoTitle.form-control(type='text' value=`${homePages.userTwoTitle}`)
+            .row
+                if homePages.userOne
+                    .col-md-6
+                        .row
+                            .col-6
+                                img(class='img-thumbnail rounded-circle imgDisplayOne' src=`/img/users/${homePages.userOne.photo}`)     
+                            .col-6
+                                ul
+                                    li#nameDisplayOne=homePages.userOne.firstname +' '+ homePages.userOne.lastname
+                                    li#majorDisplayOne=homePages.userOne.major
+                                    li#yearDisplayOne=homePages.userOne.year
+                                    li#favphraseDisplayOne=homePages.userOne.favoritePhrase
+                                button.btn.btn-primary#userOneSelectModal(type='button' data-toggle='modal' data-target='#userOneSelectModal') Select New
+                else
+                    .col-md-6
+                        .row
+                            .col-6   
+                                img(class='img-thumbnail rounded-circle imgDisplayOne' src='/img/users/default.jpg')    
+                            .col-6
+                                ul
+                                    li#nameDisplayOne Name
+                                    li#majorDisplayOne Major
+                                    li#yearDisplayOne Year
+                                    li#favphraseDisplayOne Favorite Phrase
+                                button.btn.btn-primary#userOneSelectModal(type='button' data-toggle='modal' data-target='#userOneSelectModal') Select New
+                if homePages.userTwo
+                    .col-md-6
+                        .row
+                            .col-6    
+                                img(class='img-thumbnail rounded-circle imgDisplayTwo' src=`/img/users/${homePages.userTwo.photo}`)          
+                            .col-6
+                                ul
+                                    li#nameDisplayTwo=homePages.userTwo.firstname +' '+ homePages.userTwo.lastname
+                                    li#majorDisplayTwo=homePages.userTwo.major
+                                    li#yearDisplayTwo=homePages.userTwo.year
+                                    li#favphraseDisplayTwo=homePages.userTwo.favoritePhrase
+                                button.btn.btn-primary#userTwoSelectModal(type='button' data-toggle='modal' data-target='#userTwoSelectModal') Select New
+                else
+                    .col-md-6
+                        .row
+                            .col-6
+                                img(class='img-thumbnail rounded-circle imgDisplayTwo'  src='/img/users/default.jpg')    
+                            .col-6
+                                ul
+                                    li#nameDisplayTwo Name
+                                    li#majorDisplayTwo Major
+                                    li#yearDisplayTwo Year
+                                    li#favphraseDisplayTwo Favorite Phrase
+                                button.btn.btn-primary#userTwoSelectModal(type='button' data-toggle='modal' data-target='#userTwoSelectModal') Select New
+        button.btn.btn-primary(type='submit') Submit Changes
+                            
+    
+                    

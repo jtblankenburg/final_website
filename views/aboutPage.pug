@@ -1,0 +1,129 @@
+extends base
+
+block content
+    .jumbotron.jumbotron-fluid
+        .container
+            h1(style='text-align: center')=aboutPages.headingOne
+            .row
+                .col
+                    p.d-flex()=aboutPages.paragraphOne
+    .container.aboutContainer
+        h3=aboutPages.headingTwo
+        .row
+            .col-md-6
+                if aboutPages.userOne
+                    .row
+                        .col
+                            h4=aboutPages.userOneTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userOne.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userOne.firstname + ' ' + aboutPages.userOne.lastname
+                                li=aboutPages.userOne.major
+                                li=aboutPages.userOne.year
+                                li=aboutPages.userOne.favoritePhrase
+            .col-md-6
+                if aboutPages.userTwo
+                    .row
+                        .col
+                            h4=aboutPages.userTwoTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userTwo.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userTwo.firstname + ' ' + aboutPages.userTwo.lastname
+                                li=aboutPages.userTwo.major
+                                li=aboutPages.userTwo.year
+                                li=aboutPages.userTwo.favoritePhrase
+        .row
+            .col-md-6
+                if aboutPages.userThree
+                    .row
+                        .col
+                            h4=aboutPages.userThreeTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userThree.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userThree.firstname + ' ' + aboutPages.userThree.lastname
+                                li=aboutPages.userThree.major
+                                li=aboutPages.userThree.year
+                                li=aboutPages.userThree.favoritePhrase
+            .col-md-6
+                if aboutPages.userFour
+                    .row
+                        .col
+                            h4=aboutPages.userFourTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userFour.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userFour.firstname + ' ' + aboutPages.userFour.lastname
+                                li=aboutPages.userFour.major
+                                li=aboutPages.userFour.year
+                                li=aboutPages.userFour.favoritePhrase
+        .row
+            if aboutPages.userFive
+                .col-md-6
+                    .row
+                        .col
+                            h4=aboutPages.userFiveTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userFive.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userFive.firstname + ' ' + aboutPages.userFive.lastname
+                                li=aboutPages.userOne.major
+                                li=aboutPages.userFive.year
+                                li=aboutPages.userFive.favoritePhrase
+            if aboutPages.userSix
+                .col-md-6
+                    .row
+                        .col
+                            h4=aboutPages.userSixTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userSix.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userSix.firstname + ' ' + aboutPages.userSix.lastname
+                                li=aboutPages.userSix.major
+                                li=aboutPages.userSix.year
+                                li=aboutPages.userSix.favoritePhrase
+        .row
+            if aboutPages.userSeven
+                .col-md-6
+                    .row
+                        .col
+                            h4=aboutPages.userSevenTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userSeven.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userSeven.firstname + ' ' + aboutPages.userSeven.lastname
+                                li=aboutPages.userSeven.major
+                                li=aboutPages.userSeven.year
+                                li=aboutPages.userSeven.favoritePhrase
+            if aboutPages.userEight
+                .col-md-6
+                    .row
+                        .col
+                            h4=aboutPages.userEightTitle
+                        .w-100
+                        .col-4
+                            img(class='img-thumbnail rounded-circle' src=`/img/users/${aboutPages.userEight.photo}`)
+                        .col-8(class='d-flex align-items-center')
+                            ul
+                                li=aboutPages.userEight.firstname + ' ' + aboutPages.userEight.lastname
+                                li=aboutPages.userEight.major
+                                li=aboutPages.userEight.year
+                                li=aboutPages.userEight.favoritePhrase
+                            
+        

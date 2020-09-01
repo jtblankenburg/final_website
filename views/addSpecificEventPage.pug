@@ -1,0 +1,33 @@
+extends base
+
+block content
+    .container-fluid
+        h1 Add Specific Event
+        form.add-specific-event
+            .row
+                .col-4
+                    .form-group
+                        input#eventID(type='hidden' value=`${event.id}`)
+                        img(class ='img-thumbnail coverPhotoPreview' src='/img/events/tour-1-1.jpg')
+                        label(for='coverPhoto') cover photo
+                        input#coverPhoto.form-control-file(type='file' accept='image/*')
+                .col-8
+                    .form-group
+                        label(for='title') title
+                        input#title.form-control(type='text' placeholder='title')
+            .row
+                .col-12
+                    .form-group
+                        label(for='caption') caption
+                        textarea#caption.form-control(rows='4')
+            .row
+                .col-6
+                    .form-group
+                        label(for='year') Year
+                        input#year.form-control(type='text' placeholder='year')
+                .col-6
+                    .form-group
+                        label(for='semester') Semester
+                        input#semester.form-control(type='text' placeholder='semester')
+            .row
+                button.btn.btn-primary(type='submit') Submit
